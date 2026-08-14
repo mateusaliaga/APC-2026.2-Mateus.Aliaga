@@ -1,0 +1,22 @@
+INP
+      STA CONT
+LOOP  LDA CONT
+      BRZ FIM
+      LDA VAL1
+      OUT
+      ADD VAL2
+      STA PROX
+      LDA VAL2
+      STA VAL1
+      LDA PROX
+      STA VAL2
+      LDA CONT
+      SUB UM
+      STA CONT
+      BRA LOOP
+FIM   HLT
+CONT  DAT 0
+VAL1  DAT 0
+VAL2  DAT 1
+PROX  DAT 0
+UM    DAT 1
