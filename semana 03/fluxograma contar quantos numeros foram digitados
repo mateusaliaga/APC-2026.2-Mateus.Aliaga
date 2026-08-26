@@ -1,0 +1,35 @@
+[ Início ]
+           │
+           ▼
+   ┌────────────────┐
+   │ Lê um número   │ (INP)
+   │  do usuário    │
+   └───────┬────────┘
+           │
+           ▼
+   ┌────────────────┐
+   │ Soma +1 ao     │ (ADD UM)
+   │ número lido    │
+   └───────┬────────┘
+           │
+           ▼
+   /───────────────\
+  /   O resultado   \    Sim
+ <    da soma deu    >──────────────┐
+  \     ZERO?       /               │
+   \───────────────/                │
+           │ Não                    │
+           ▼                        ▼
+   ┌────────────────┐      ┌────────────────┐
+   │ Carrega a      │      │ Carrega o total│ (LDA CONT)
+   │ contagem atual │      │ de números     │
+   │  (LDA CONT)    │      └───────┬────────┘
+   └───────┬────────┘              │
+           │                       ▼
+   ┌────────────────┐      ┌────────────────┐
+   │ Incremente +1  │      │ Exibe o número │ (OUT)
+   │  e salva RAM   │      │ de elementos   │
+   │ (ADD UM / STA) │      └───────┬────────┘
+   └───────┬────────┘              │
+           │                       ▼
+           └──────────────────► [ Fim ] (HLT)
