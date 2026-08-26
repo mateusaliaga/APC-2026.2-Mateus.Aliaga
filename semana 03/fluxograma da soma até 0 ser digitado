@@ -1,0 +1,29 @@
+[ Início ]
+           │
+           ▼
+   ┌────────────────┐
+   │ Lê um número   │ (INP)
+   │  do usuário    │
+   └───────┬────────┘
+           │
+           ▼
+   /───────────────\
+  /    O número     \    Sim
+ <    digitado é     >──────────────┐
+  \    igual a 0?   /               │
+   \───────────────/                │
+           │ Não                    │
+           ▼                        ▼
+   ┌────────────────┐      ┌────────────────┐
+   │ Soma o número  │      │ Carrega o      │ (LDA SOMA)
+   │ ao acumulador  │      │ total guardado │
+   │   (ADD SOMA)   │      └───────┬────────┘
+   └───────┬────────┘              │
+           │                       ▼
+   ┌────────────────┐      ┌────────────────┐
+   │ Salva o novo   │      │ Imprime a soma │ (OUT)
+   │ total na RAM   │      │ final na tela  │
+   │   (STA SOMA)   │      └───────┬────────┘
+   └───────┬────────┘              │
+           │                       ▼
+           └──────────────────► [ Fim ] (HLT)
