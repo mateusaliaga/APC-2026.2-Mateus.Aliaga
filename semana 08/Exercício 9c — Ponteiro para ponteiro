@@ -1,0 +1,24 @@
+Entrada:
+
+#include <stdio.h>
+
+int main(void) {
+    int   x  = 42;
+    int  *p  = &x;
+    int **pp = &p;
+
+    printf("x   = %d\n",   x);
+    printf("*p  = %d\n",  *p);
+    printf("**pp= %d\n", **pp);
+
+    **pp = 100;
+    printf("x apos **pp=100: %d\n", x);
+    return 0;
+}
+
+Saida:
+
+x   = 42
+*p  = 42
+**pp= 42
+x apos **pp=100: 100
