@@ -1,3 +1,4 @@
+entrada
 Ler N e armazenar na variável correspondente.
 inicializar a variavel soma com o valor 0
 verificar loop; carregar o valor de N;se n = 0 desviar para out
