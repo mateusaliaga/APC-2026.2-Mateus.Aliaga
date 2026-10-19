@@ -1,12 +1,44 @@
-entrada
-Ler N e armazenar na variável correspondente.
-inicializar a variavel soma com o valor 0
-verificar loop; carregar o valor de N;se n = 0 desviar para out
-N = N -1 
-ler proximo inp
-somar inp a soma e atualizar o valor armazenado
-retornar ao loop
-verifica N
-fim do loop
-out (exibe o resultado)
-hlt (para)
+[ INÍCIO ]
+    │
+    
+[ INP ] ──> Ler N
+    │
+    
+[ STA N ] ──> Salvar N
+    │
+    
+[ LDA ZERO ] 
+    │
+    
+[ STA SOMA ] ──> SOMA = 0
+    │
+    ┌────────────────────────┐
+    │                        │
+                             │
+[ LOOP: LDA N ]              │
+    │                        │
+    ├─ (Se N == 0) ──────────┤
+    │                        │
+     (Se N != 0)             │
+[ SUB UM ] ──> N = N - 1     │
+    │                        │
+                             │
+[ STA N ]                    │
+    │                        │
+                             │
+[ INP ] ──> Ler número       │
+    │                        │
+                             │
+[ ADD SOMA ]                 │
+    │                        │
+                             │
+[ STA SOMA ] ────────────────┘
+    │
+      (Após o loop)
+[ LDA SOMA ]
+    │
+    
+[ OUT ] ──> Exibir soma final
+    │
+    
+  [ FIM ]
