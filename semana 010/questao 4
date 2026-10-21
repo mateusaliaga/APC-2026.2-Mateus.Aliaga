@@ -1,0 +1,20 @@
+programa manipula o array     int array[] = {1, 2, 3, 4, 5};
+primeiro ele printa o array normal
+depois o dobra_valor como mexe na int não muda a memoria
+e no terceiro print ele mostra o valor de fato dobrado
+saida: 
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
