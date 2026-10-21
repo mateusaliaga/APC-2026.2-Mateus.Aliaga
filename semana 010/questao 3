@@ -1,0 +1,3 @@
+o loop vai de 0 a 9
+em numeros pares ele pula o print e se é == 7 ele quebra o loop 
+Resultado é 1 3 5
