@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+
+void processar_dados() {
+    int idade;
+    float altura;
+    char nome[100];
+    
+    int qtd_pessoas = 0;
+    int soma_idades = 0;
+    
+    int idade_mais_idosa = -1;
+    float altura_mais_idosa = 0.0;
+    char nome_mais_idoso[100] = "";
+
+    char linha[256];
+    
+    while (1) {
+        printf("Digite no formato (idade altura nome) ou pressione Enter para sair: ");
+        if (fgets(linha, sizeof(linha), stdin) == NULL) break;
+        
+        linha[strcspn(linha, "\n")] = 0;
+        
+        if (strlen(linha) == 0) {
+            break;
+        }
+        
+        if (sscanf(linha, "%d %f %s", &idade, &altura, nome) == 3) {
+            qtd_pessoas++;
+            soma_idades += idade;
+            
+            if (qtd_pessoas == 1 || idade > idade_mais_idosa) {
+                idade_mais_idosa = idade;
+                altura_mais_idosa = altura;
+                strcpy(nome_mais_idoso, nome);
+            }
+        } else {
+            printf("Formato inválido! Tente novamente.\n");
+        }
+    }
+
+    if (qtd_pessoas > 0) {
+        float media_idades = (float)soma_idades / qtd_pessoas;
+        
+        printf("\n--- RESULTADOS ---\n");
+        printf("Média das idades: %.2f anos\n", media_idades);
+        printf("Altura da pessoa mais idosa: %.2f metros\n", altura_mais_idosa);
+        printf("Nome da pessoa mais idosa: %s\n", nome_mais_idoso);
+    } else {
+        printf("\nNenhuma pessoa foi registada.\n");
+    }
+}
+
+int main() {
+    processar_dados();
+    return 0;
+}
