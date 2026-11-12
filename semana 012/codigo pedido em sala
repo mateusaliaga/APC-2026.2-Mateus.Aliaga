@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+#define MAX 100
+
+typedef struct {
+    int matricula;
+    char nome[50];
+} Estudante;
+
+void cadastrar_turma(Estudante alunos[], int *qtd) {
+    printf("Qtd de estudantes: ");
+    scanf("%d", qtd);
+    for (int i = 0; i < *qtd; i++) {
+        printf("Matricula e Nome do aluno %d: ", i + 1);
+        scanf("%d %[^\n]", &alunos[i].matricula, alunos[i].nome);
+    }
+}
+
+void registrar_presenca(Estudante alunos[], int qtd_alunos) {
+    char data[11];
+    int mat, presentes[MAX] = {0}, total = 0;
+
+    printf("Data (DD/MM/AAAA): ");
+    scanf("%s", data);
+
+    printf("Matriculas presentes (0 para terminar):\n");
+    while (1) {
+        scanf("%d", &mat);
+        if (mat == 0) break;
+        presentes[total++] = mat;
+    }
+
+    printf("Presencas registadas para %s!\n", data);
+}
+
+int main() {
+    Estudante alunos[MAX];
+    int qtd_alunos = 0, op;
+
+    do {
+        printf("\n1. Cadastrar Turma\n2. Registar Presenca\n0. Sair\nEscolha: ");
+        scanf("%d", &op);
+        if (op == 1) cadastrar_turma(alunos, &qtd_alunos);
+        else if (op == 2) registrar_presenca(alunos, qtd_alunos);
+    } while (op != 0);
+
+    return 0;
+}
