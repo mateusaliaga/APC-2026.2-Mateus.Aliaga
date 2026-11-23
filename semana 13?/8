@@ -1,0 +1,9 @@
+# Mateus Aliaga - Atv 08
+
+frase = input("Digite uma frase: ")
+
+print("Letras 'a':", frase.count("a"))
+print("De trás para frente:", frase[::-1])
+
+# O count("a") conta só o "a" minúsculo. Para contar maiúsculo também
+# daria para usar frase.lower().count("a").
