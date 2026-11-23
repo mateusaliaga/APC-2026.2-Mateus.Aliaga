@@ -1,0 +1,17 @@
+# Mateus Aliaga - Atv 02
+
+x = 10
+print(x, type(x))
+
+x = 2.5
+print(x, type(x))
+
+x = "dez"
+print(x, type(x))
+
+# A saída mostra <class 'int'>, depois <class 'float'>, depois <class 'str'>.
+#
+# Em C isso nem compila. Lá a variável é declarada com um tipo fixo
+# (int x;) e o compilador já reserva um espaço daquele tamanho antes do
+# programa rodar. Atribuir "dez" a um int é erro de compilação, não de
+# execução.
