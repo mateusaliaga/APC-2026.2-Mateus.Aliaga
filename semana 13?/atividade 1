@@ -1,0 +1,19 @@
+# Mateus Aliaga - Atv 01
+
+print(17 / 5)
+print(17 // 5)
+print(17 % 5)
+print(2 ** 10)
+
+# Resultados: 3.4, 3, 2 e 1024.
+#
+# A barra simples / sempre devolve float, mesmo quando a divisão é exata:
+# 10 / 2 dá 5.0 e não 5.
+# A barra dupla // devolve a divisão inteira, arredondando para baixo.
+# O % devolve o resto, igual ao C.
+#
+# Em C, 17/5 entre dois inteiros já dá 3 direto, porque o C corta a parte
+# decimal. Então o // parece a mesma coisa que a divisão inteira do C,
+# mas não é: com número negativo -17 // 5 dá -4 no Python, porque
+# arredonda para baixo, e -17/5 dá -3 no C, porque corta em direção
+# ao zero.
