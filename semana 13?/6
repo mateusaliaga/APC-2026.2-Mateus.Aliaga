@@ -1,0 +1,16 @@
+# Mateus Aliaga - Atv 06
+
+numeros = []
+
+for i in range(5):
+    numero = float(input("Digite um número: "))
+    numeros.append(numero)
+
+# versão com laço, do jeito que seria feito em C
+maior = numeros[0]
+for numero in numeros:
+    if numero > maior:
+        maior = numero
+
+print("Maior com laço:", maior)
+print("Maior com max():", max(numeros))
