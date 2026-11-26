@@ -1,0 +1,68 @@
+# Etapa 1 - Leia e inspecione (PDAD 2024)
+
+import pandas as pd
+
+PASTA = "./"
+
+ARQ_MOR = PASTA + "moradores.csv"
+ARQ_DOM = PASTA + "domicilios.csv"
+ARQ_DIC = PASTA + "dicionario_de_variaveis_pdad_2024_público.xlsx"
+
+mor = pd.read_csv(ARQ_MOR, sep=";", decimal=",", encoding="utf-8-sig", low_memory=False)
+dom = pd.read_csv(ARQ_DOM, sep=";", decimal=",", encoding="utf-8-sig", low_memory=False)
+
+dic_mor = pd.read_excel(ARQ_DIC, sheet_name="moradores")
+
+
+# 1a.
+print("1a.")
+print("moradores:", mor.shape[0], "linhas e", mor.shape[1], "colunas")
+print("domicilios:", dom.shape[0], "linhas e", dom.shape[1], "colunas")
+
+print()
+print(mor[["A01nficha", "localidade", "idade_calculada", "escolaridade",
+           "renda_ind", "peso_mor"]].head())
+
+
+# 1b. 
+print()
+print("1b.")
+mor.info(verbose=False)
+print("int64:  ", len(mor.columns[mor.dtypes == "int64"]), "colunas")
+print("float64:", len(mor.columns[mor.dtypes == "float64"]), "colunas")
+print("object: ", mor.columns[mor.dtypes == "object"].tolist())
+
+
+# 1c.
+def descricao(dic, nome):
+    pos = list(dic["Coluna"]).index(nome)
+    linhas = [pos]
+    j = pos + 1
+    while j < len(dic) and pd.isna(dic["Coluna"].iloc[j]):
+        linhas.append(j)
+        j = j + 1
+    return dic.iloc[linhas][["Descrição da coluna", "Valor", "Descrição do valor"]]
+
+
+print()
+print("1c.")
+for nome in ["localidade", "idade_calculada", "E03", "id_genero", "renda_ind", "peso_mor"]:
+    print()
+    print("---", nome, "---")
+    print(descricao(dic_mor, nome).to_string(index=False))
+
+print()
+print("codigos que aparecem em id_genero:")
+print(mor["id_genero"].value_counts())
+print()
+print("codigos que aparecem em E03:")
+print(mor["E03"].value_counts())
+
+
+# 1d. 
+print()
+print("1d.")
+print(mor[["idade_calculada", "escolaridade", "renda_ind", "peso_mor"]].describe())
+print()
+print("renda_ind igual a 99999:", (mor["renda_ind"] == 99999).sum(), "registros")
+print("renda_ind igual a 88888:", (mor["renda_ind"] == 88888).sum(), "registros")
